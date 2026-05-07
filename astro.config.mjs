@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.fedeforquera.com.ar',
+  site: 'https://fedeforquera.com.ar',
 
   vite: {
     plugins: [tailwindcss()]
