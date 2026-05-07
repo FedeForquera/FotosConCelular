@@ -4,4 +4,4 @@ Allow: /
 # Bloquear recursos innecesarios para el crawler
 Disallow: /videos/
 
-Sitemap: https://fedeforquera.com/sitemap.xml
+Sitemap: https://fedeforquera.com.ar/sitemap.xml

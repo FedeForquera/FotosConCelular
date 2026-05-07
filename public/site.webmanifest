@@ -1,0 +1,22 @@
+{
+  "name": "Fotos con Celular que Venden — Fede Forquera",
+  "short_name": "Fede Forquera",
+  "description": "Ebook de fotografía de producto con celular para emprendedores argentinos.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F7EEE4",
+  "theme_color": "#28C0B4",
+  "icons": [
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

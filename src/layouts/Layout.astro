@@ -12,7 +12,7 @@ const {
 } = Astro.props;
 
 const siteUrl   = CONFIG.siteUrl;
- const ogImage   = `${siteUrl}/og-cover.jpg`;
+const ogImage   = `${siteUrl}/og-cover.jpg`;
 const canonical = `${siteUrl}/`;
 ---
 <!DOCTYPE html>
@@ -67,32 +67,32 @@ const canonical = `${siteUrl}/`;
     {
       "@context": "https://schema.org",
       "@type": "Book",
-      "@id": "https://fedeforquera.com/#ebook",
+      "@id": "https://fedeforquera.com.ar/#ebook",
       "name": "Fotos con Celular que Venden",
       "alternateName": "Guía práctica de fotografía de productos con celular",
       "bookFormat": "https://schema.org/EBook",
       "inLanguage": "es",
       "numberOfPages": 50,
       "description": "Guía práctica para fotografiar productos con el celular. Técnicas reales de luz natural, escenografía simple y estrategia para Instagram y e-commerce. Para emprendedores sin experiencia previa en fotografía.",
-      "image": "https://fedeforquera.com/images/ebook/portadaEbook.svg",
-      "url": "https://fedeforquera.com/",
+      "image": "https://fedeforquera.com.ar/images/ebook/portadaEbook.svg",
+      "url": "https://fedeforquera.com.ar/",
       "author": {
         "@type": "Person",
-        "@id": "https://fedeforquera.com/#autor",
+        "@id": "https://fedeforquera.com.ar/#autor",
         "name": "Fede Forquera",
         "jobTitle": "Fotógrafo & Filmmaker Publicitario",
         "sameAs": ["https://www.instagram.com/fede_forquera/"]
       },
       "publisher": {
         "@type": "Person",
-        "@id": "https://fedeforquera.com/#autor"
+        "@id": "https://fedeforquera.com.ar/#autor"
       },
       "offers": {
         "@type": "Offer",
         "price": "20000",
         "priceCurrency": "ARS",
         "availability": "https://schema.org/InStock",
-        "url": "https://fedeforquera.com/",
+        "url": "https://fedeforquera.com.ar/",
         "seller": { "@type": "Person", "name": "Fede Forquera" }
       },
       "about": [
@@ -109,12 +109,35 @@ const canonical = `${siteUrl}/`;
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "@id": "https://fedeforquera.com/#website",
-      "url": "https://fedeforquera.com/",
+      "@id": "https://fedeforquera.com.ar/#website",
+      "url": "https://fedeforquera.com.ar/",
       "name": "Fede Forquera — Fotografía para Emprendedores",
       "description": "Ebook y recursos de fotografía de productos para emprendedores argentinos.",
       "inLanguage": "es-AR",
-      "publisher": { "@id": "https://fedeforquera.com/#autor" }
+      "publisher": { "@id": "https://fedeforquera.com.ar/#autor" }
+    }
+    </script>
+
+    <!-- ── Schema.org: Person (Fede Forquera) ── -->
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://fedeforquera.com.ar/#autor",
+      "name": "Fede Forquera",
+      "jobTitle": "Fotógrafo & Filmmaker Publicitario",
+      "description": "Fotógrafo y filmmaker publicitario especializado en gastronomía, productos y eventos. Creador del ebook Fotos con Celular que Venden.",
+      "url": "https://fedeforquera.com.ar/",
+      "image": "https://fedeforquera.com.ar/images/about/fedeabout.jpg",
+      "sameAs": [
+        "https://www.instagram.com/fede_forquera/"
+      ],
+      "knowsAbout": [
+        "Fotografía de productos",
+        "Fotografía con celular",
+        "Contenido para redes sociales",
+        "Fotografía gastronómica"
+      ]
     }
     </script>
 
@@ -128,9 +151,11 @@ const canonical = `${siteUrl}/`;
     <slot name="head" />
 
     <!-- ── Favicon ── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
     <slot />

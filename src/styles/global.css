@@ -153,3 +153,21 @@ p {
   background: rgba(40,192,180,0.18);
   color: var(--color-ink);
 }
+
+/* Respeta preferencia de no-movimiento del usuario */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up,
+  .stagger > * {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .book-float {
+    animation: none !important;
+  }
+}
+
+/* Mejora de rendimiento para animación del libro */
+.book-float {
+  will-change: transform;
+}
