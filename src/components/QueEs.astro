@@ -1,0 +1,224 @@
+---
+import { CONFIG } from '../config';
+
+const previews = [
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`,
+    label: '01',
+    title: 'Luz natural bien usada',
+    desc: 'Cómo posicionar el producto cerca de una ventana para conseguir luz perfecta siempre.',
+    color: 'var(--color-teal)',
+    bg: 'var(--color-teal-light)',
+  },
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`,
+    label: '02',
+    title: 'Escenografía simple',
+    desc: 'Fondos y props caseros que se ven profesionales. Sin gastar dinero en equipos.',
+    color: 'var(--color-orange)',
+    bg: '#faeeda',
+  },
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
+    label: '03',
+    title: 'Tipos de fotos',
+    desc: 'Las 5 fotos que toda marca necesita para vender en redes y e-commerce.',
+    color: 'var(--color-salmon)',
+    bg: '#fde8d5',
+  },
+];
+---
+<section id="que-es" style="padding:clamp(5rem,9vw,7rem) 5%;background:var(--color-bg);position:relative;overflow:hidden;">
+
+  <!-- Decoración fondo -->
+  <div style="position:absolute;left:-8%;bottom:-10%;width:40vw;height:40vw;
+    background:radial-gradient(circle,rgba(40,192,180,0.05) 0%,transparent 65%);
+    border-radius:50%;pointer-events:none;"></div>
+
+  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;">
+
+    <div class="fade-up quees-header">
+      <div>
+        <p class="section-tag">La solución</p>
+        <h2 style="font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:20px;">
+          Este ebook te enseña<br/>exactamente eso
+        </h2>
+        <p style="font-size:1.05rem;color:var(--color-ink-2);line-height:1.7;
+          max-width:480px;font-weight:300;">
+          Una guía práctica de {CONFIG.ebookPaginas} páginas con técnicas reales,
+          ejemplos visuales y videos de ejemplo. Todo aplicable desde el primer día,
+          con lo que ya tenés en casa.
+        </p>
+      </div>
+
+      <!-- Imagen tapa con efecto -->
+      <div class="quees-img-wrap">
+        <img
+          src="/images/ebook/fotosQueVenden.PNG"
+          alt="Primera página del ebook Fotos con Celular que Venden"
+          class="quees-img"
+          loading="lazy"
+          width="190"
+          height="254"
+        />
+      </div>
+    </div>
+
+    <div class="stagger fade-up quees-cards">
+      {previews.map(p => (
+        <div class="quees-card">
+          <div class="quees-card-accent" style={`background:${p.color}`}></div>
+          <div class="quees-card-icon" style={`background:${p.bg};color:${p.color}`} set:html={p.icon}></div>
+          <div class="quees-card-label" style={`color:${p.color}`}>{p.label}</div>
+          <h3 class="quees-card-title">{p.title}</h3>
+          <p class="quees-card-desc">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="fade-up" style="text-align:center;margin-top:48px;">
+      <a href={CONFIG.whatsappUrl} class="btn-cta" target="_blank" rel="noopener noreferrer">
+        Ver precio y comprar →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Header con imagen a la derecha */
+  .quees-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 56px;
+  }
+
+  /* Imagen tapa */
+  .quees-img-wrap {
+    flex-shrink: 0;
+    width: 190px;
+  }
+
+  .quees-img {
+    width: 190px;
+    border-radius: 10px;
+    transform: rotate(-2.5deg);
+    box-shadow:
+      0 8px 24px rgba(0,0,0,0.15),
+      12px 20px 40px rgba(0,0,0,0.18),
+      0 0 0 1px rgba(0,0,0,0.04);
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+
+  .quees-img:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow:
+      0 12px 32px rgba(0,0,0,0.18),
+      16px 28px 48px rgba(0,0,0,0.2),
+      0 0 0 1px rgba(0,0,0,0.04);
+  }
+
+  /* Cards grid */
+  .quees-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .quees-card {
+    position: relative;
+    background: white;
+    border-radius: 14px;
+    padding: 28px 22px 24px;
+    border: 1.5px solid rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: box-shadow .25s, transform .25s, border-color .25s;
+    cursor: default;
+  }
+
+  .quees-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 36px rgba(0,0,0,0.09);
+    border-color: rgba(40,192,180,0.2);
+  }
+
+  /* Barra acento superior */
+  .quees-card-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 14px 14px 0 0;
+    opacity: 0.7;
+    transition: opacity .25s;
+  }
+
+  .quees-card:hover .quees-card-accent {
+    opacity: 1;
+  }
+
+  /* Ícono */
+  .quees-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .quees-card-label {
+    font-family: var(--font-serif);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    margin-bottom: 8px;
+  }
+
+  .quees-card-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--color-ink);
+    line-height: 1.3;
+  }
+
+  .quees-card-desc {
+    font-size: .82rem;
+    color: var(--color-muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .quees-cards {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .quees-header {
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-bottom: 36px;
+    }
+    .quees-img-wrap {
+      display: none;
+    }
+    .quees-cards {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .quees-card {
+      padding: 22px 18px 20px;
+    }
+    /* CTA full-width */
+    #que-es .btn-cta {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

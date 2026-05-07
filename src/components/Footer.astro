@@ -1,0 +1,294 @@
+---
+import { CONFIG } from '../config';
+---
+<footer id="footer">
+
+  <div class="footer-inner">
+
+    <!-- Columna izquierda: Logo + tagline + ig -->
+    <div class="footer-brand">
+      <img src="/images/logo/logofede2.svg" alt="Fede Forquera" class="footer-logo" />
+      <p class="footer-tagline">
+        Fotógrafo & Filmmaker Publicitario.<br/>
+        Creando contenido con alma desde Buenos Aires.
+      </p>
+      <a href={CONFIG.instagramUrl} target="_blank" rel="noopener noreferrer" class="footer-ig">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        {CONFIG.instagramHandle}
+      </a>
+    </div>
+
+    <!-- Columna central: navegación -->
+    <div class="footer-nav-col">
+      <h4 class="footer-heading">Navegación</h4>
+      <ul class="footer-list">
+        <li><a href="#que-es">¿Qué es?</a></li>
+        <li><a href="#incluye">Qué incluye</a></li>
+        <li><a href="#para-quien">Para quién es</a></li>
+        <li><a href="#autor">El autor</a></li>
+        <li><a href="#preview">Resultados reales</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna derecha: CTA -->
+    <div class="footer-cta-col">
+      <h4 class="footer-heading">Empezá hoy</h4>
+      <div class="footer-price-wrap">
+        <span class="footer-price">{CONFIG.precioCompleto}</span>
+        <span class="footer-price-sub">Pago único · PDF inmediato</span>
+      </div>
+      <a href={CONFIG.whatsappUrl} class="footer-btn" target="_blank" rel="noopener noreferrer">
+        Comprá el ebook
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Línea degradada -->
+  <div class="footer-divider-wrap">
+    <div class="footer-divider"></div>
+  </div>
+
+  <!-- Pie inferior -->
+  <div class="footer-bottom">
+    <span>© 2026 Fede Forquera · Todos los derechos reservados</span>
+    <a href="https://www.devcraft.com.ar/" target="_blank" rel="noopener noreferrer" class="footer-dev">
+      <img src="/images/logo/devcraft.png" alt="DevCraft" class="footer-dev-logo" />
+      Desarrollado por <span class="footer-dev-name">DevCraft</span>
+    </a>
+  </div>
+
+</footer>
+
+<style>
+  #footer {
+    background: var(--color-ink);
+    color: white;
+    padding: 64px 5% 32px;
+  }
+
+  .footer-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1.2fr;
+    gap: 56px;
+    padding-bottom: 48px;
+  }
+
+  /* ── Brand ── */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .footer-logo {
+    height: 88px;
+    width: auto;
+    display: block;
+    margin-bottom: 20px;
+    opacity: 0.92;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+    transform-origin: left center;
+  }
+
+  .footer-logo:hover {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+
+  .footer-tagline {
+    font-size: .82rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-weight: 300;
+    max-width: 260px;
+  }
+
+  .footer-ig {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: .82rem;
+    color: var(--color-teal);
+    transition: opacity .2s;
+  }
+
+  .footer-ig:hover { opacity: .7; }
+
+  /* ── Nav ── */
+  .footer-heading {
+    font-family: var(--font-serif);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 20px;
+  }
+
+  .footer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .footer-list a {
+    font-size: .85rem;
+    color: rgba(255,255,255,0.55);
+    transition: color .2s;
+  }
+
+  .footer-list a:hover { color: white; }
+
+  /* ── CTA col ── */
+  .footer-cta-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .footer-price-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+  }
+
+  .footer-price {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .footer-price-sub {
+    font-size: .75rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .footer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--color-teal);
+    border: 1.5px solid var(--color-teal);
+    padding: 11px 22px;
+    border-radius: 40px;
+    font-size: .875rem;
+    font-weight: 600;
+    transition: background .2s, color .2s, transform .2s;
+    width: fit-content;
+  }
+
+  .footer-btn:hover {
+    background: var(--color-teal);
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  /* ── Divider degradado ── */
+  .footer-divider-wrap {
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+
+  .footer-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(40,192,180,0.3), transparent);
+  }
+
+  /* ── Bottom ── */
+  .footer-bottom {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: .78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-dev {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.3);
+    transition: opacity .2s;
+  }
+
+  .footer-dev:hover { opacity: .7; }
+
+  .footer-dev-logo {
+    height: 20px;
+    width: auto;
+    display: block;
+    opacity: 0.6;
+  }
+
+  .footer-dev-name {
+    color: #a78bfa;
+    font-weight: 600;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .footer-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #footer {
+      padding: 48px 5% 28px;
+    }
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding-bottom: 36px;
+    }
+    .footer-brand {
+      grid-column: auto;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-logo {
+      height: 76px;
+      margin-bottom: 16px;
+      transform-origin: center center;
+    }
+    .footer-tagline {
+      max-width: 100%;
+    }
+    .footer-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+  }
+</style>
